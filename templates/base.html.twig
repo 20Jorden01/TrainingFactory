@@ -3,10 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block header %}
+        {% endblock %}
+        {% block body %}
+        {% endblock %}
+        {% block footer %}
+            <div class="jumbotron-fluid text-center bg-secondary">
+                <p>Training Centrum Den Haag . 010 519 0532</p>
+                <p class="text-white" style="font-size: 10pt">developed bij FastDevelopment 2016</p>
+            </div>
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
