@@ -11,3 +11,13 @@
 .acount p{
     margin: 0;
 }
+
+.foto{
+    text-align: center;
+}
+
+img{
+    height: 200px;
+    width: 80%;
+    display: inline-block;
+}

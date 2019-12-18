@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/lessen.css')}}">
+{% endblock %}
+{% block header%}
+    {% include 'header.html.twig' %}
+{% endblock %}
+{% block body%}
+    <ul>
+    {% for training in trainingen %}
+        <li>
+            <img src="{{ asset('img/{{ training.Name }}.png') }}">
+            {{ training.getName() }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

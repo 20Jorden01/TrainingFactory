@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c50aad1f-dc33-4b32-a9fd-3135c87f9c88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/lessen.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/kickboxen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/mma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stootzak training.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/LessenController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/RegistreerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/lessen.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registreren.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Training.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Training.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/TrainingRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TrainingRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/header.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homePagina.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homePagina.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +180,8 @@
       <option name="presentableId" value="Default" />
       <updated>1576483117750</updated>
       <workItem from="1576483124219" duration="9202000" />
-      <workItem from="1576577013565" duration="3063000" />
+      <workItem from="1576577013565" duration="4565000" />
+      <workItem from="1576663469095" duration="13114000" />
     </task>
     <servers />
   </component>

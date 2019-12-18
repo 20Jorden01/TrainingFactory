@@ -1,0 +1,24 @@
+input{
+    border: none;
+    border-bottom: black solid 1px;
+    width: 100%;
+}
+input[type=radio]{
+    width: auto;
+}
+input[type=submit]{
+    border: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px 5px;
+}
+.container{
+    border: black solid 1px;
+    text-align: center;
+    margin: 5px auto;
+}
+form{
+    margin: 5px auto;
+    display: inline-block;
+    text-align: left;
+}

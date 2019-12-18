@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TrainingRepository")
@@ -87,5 +88,10 @@ class Training
         $this->costs = $costs;
 
         return $this;
+    }
+    public function getDuration2()
+    {
+//        $tijd = date_create_from_format("h:i" , $this->duration, 'Europe/Amsterdam');
+        return $this->duration->format('h:i');
     }
 }

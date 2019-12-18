@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/login.css')}}">
+{% endblock %}
+{% block header %}
+    {% include 'header.html.twig' %}
+{% endblock %}
+{% block body %}
+    <div class="container justify-content-center">
+        <form>
+            <h3>Lid worden</h3>
+            <p>Om gebruik te kunnen maken van de lessen moet je bij ons bekend zijn.<br>
+                Vul hieronder alle gegevens in en registreer jezelf.</p>
+            <table>
+                <tr>
+                    <td><p>Voornaam*</p></td>
+                    <td colspan="2"><input type="text" name="voornaam" required></td>
+                </tr>
+                <tr>
+                    <td><p>tussenvoegsel</p></td>
+                    <td colspan="2"><input type="text" name="tussenvoegsel"></td>
+                </tr>
+                <tr>
+                    <td><p>Achternaam*</p></td>
+                    <td colspan="2"><input type="text" name="achternaam" required></td>
+                </tr>
+                <tr>
+                    <td><p>Geboortedatum*</p></td>
+                    <td colspan="2"><input type="date" name="geboortedatum" required></td>
+                </tr>
+                <tr>
+                    <td><p>Gebruikersnaam*</p></td>
+                    <td><input type="text" name="username" required></td>
+                    <td><p>(te gebruiken om in te loggen)</p></td>
+                </tr>
+                <tr>
+                    <td><p>Wachtwoord*</p></td>
+                    <td><input type="password" name="password1" required></td>
+                </tr>
+                <tr>
+                    <td><p>Herhaal wachtwoord*</p></td>
+                    <td><input type="password" name="password2" required></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><p>Het wachtwoord is nodig om in te loggen. Moet minstens 6 tekens bevatten</p></td>
+                </tr>
+                <tr>
+                    <td>Man/Vrouw</td>
+                    <td>
+                        <input type="radio" name="gender" value="Man">Man
+                        <input type="radio" name="gender" value="Vrouw">Vrouw
+                    </td>
+                </tr>
+                <tr>
+                    <td>Straat*</td>
+                    <td><input type="text" name="straat"></td>
+                </tr>
+                <tr>
+                    <td>Postcode</td>
+                    <td><input type="text" name="postcode"></td>
+                </tr>
+                <tr>
+                    <td>Stad</td>
+                    <td colspan="2"><input type="text" name="stad"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td colspan="2"><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="registreer" value="Registreer"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{% endblock %}

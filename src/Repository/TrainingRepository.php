@@ -47,4 +47,15 @@ class TrainingRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function allTrainingen(): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = 'SELECT * FROM training';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, Training::class);
+    }
 }
