@@ -94,4 +94,10 @@ class Training
 //        $tijd = date_create_from_format("h:i" , $this->duration, 'Europe/Amsterdam');
         return $this->duration->format('h:i');
     }
+
+    public function getImg(): ?string
+    {
+        $test = "img/$this->name.png";
+        return strtolower($test);
+    }
 }

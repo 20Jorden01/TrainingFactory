@@ -7,11 +7,34 @@
     {% include 'header.html.twig' %}
 {% endblock %}
 {% block body%}
-    <ul>
+    <p>Vandaag - dinsdag - woensdag - donderdag - vrijdag - zaterdag - zondag</p>
+    <ul style="list-style-type: none; padding-inline-start: 3px">
     {% for training in trainingen %}
         <li>
-            <img src="{{ asset('img/{{ training.Name }}.png') }}">
+            <div class="row">
+            <div class="col-sm-4">
+            <img src="{{ asset(training.getImg()) }}">
             {{ training.getName() }}
+            </div>
+            <div class="col-sm-8">
+                <table>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                </table>
+            </div>
+            </div>
         </li>
     {% endfor %}
     </ul>
