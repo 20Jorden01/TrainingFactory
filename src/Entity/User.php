@@ -207,4 +207,10 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getRole(){
+        $roles = $this->getRoles();
+
+        return str_replace("ROLE_", "", $roles[0]);
+    }
 }
