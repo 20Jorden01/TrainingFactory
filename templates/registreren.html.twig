@@ -8,48 +8,51 @@
 {% endblock %}
 {% block body %}
     <div class="container justify-content-center">
+    {{ form_start(registrationForm) }}
         <form>
+            {{ form_errors(registrationForm) }}
             <h3>Lid worden</h3>
             <p>Om gebruik te kunnen maken van de lessen moet je bij ons bekend zijn.<br>
                 Vul hieronder alle gegevens in en registreer jezelf.</p>
             <table>
                 <tr>
                     <td><p>Voornaam*</p></td>
-                    <td colspan="2"><input type="text" name="voornaam" required></td>
+                    <td colspan="2">{{ form_row(registrationForm.firstname) }}</td>
                 </tr>
                 <tr>
                     <td><p>tussenvoegsel</p></td>
-                    <td colspan="2"><input type="text" name="tussenvoegsel"></td>
+                    <td colspan="2">{{ form_row(registrationForm.preprovision) }}</td>
                 </tr>
                 <tr>
                     <td><p>Achternaam*</p></td>
-                    <td colspan="2"><input type="text" name="achternaam" required></td>
+                    <td colspan="2">{{ form_row(registrationForm.lastname) }}</td>
                 </tr>
                 <tr>
                     <td><p>Geboortedatum*</p></td>
-                    <td colspan="2"><input type="date" name="geboortedatum" required></td>
+                    <td colspan="2">{{ form_row(registrationForm.dateofbirth) }}</td>
                 </tr>
                 <tr>
                     <td><p>Gebruikersnaam*</p></td>
-                    <td><input type="text" name="username" required></td>
+                    <td>{{ form_row(registrationForm.username) }}</td>
                     <td><p>(te gebruiken om in te loggen)</p></td>
                 </tr>
                 <tr>
                     <td><p>Wachtwoord*</p></td>
-                    <td><input type="password" name="password1" required></td>
+                    <td>{{ form_row(registrationForm.plainPassword) }}</td>
                 </tr>
-                <tr>
-                    <td><p>Herhaal wachtwoord*</p></td>
-                    <td><input type="password" name="password2" required></td>
-                </tr>
+{#                <tr>#}
+{#                    <td><p>Herhaal wachtwoord*</p></td>#}
+{#                    <td><input type="password" name="password2" required></td>#}
+{#                </tr>#}
                 <tr>
                     <td colspan="3"><p>Het wachtwoord is nodig om in te loggen. Moet minstens 6 tekens bevatten</p></td>
                 </tr>
                 <tr>
                     <td>Man/Vrouw</td>
                     <td>
-                        <input type="radio" name="gender" value="Man">Man
-                        <input type="radio" name="gender" value="Vrouw">Vrouw
+                        <div class="radio">
+                        {{ form_row(registrationForm.gender) }}
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -66,13 +69,16 @@
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td colspan="2"><input type="email" name="email"></td>
+                    <td colspan="2">{{ form_row(registrationForm.email) }}</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" name="registreer" value="Registreer"></td>
+                    <td><button>Register</button></td>
+{#                    <td><input type="submit" name="registreer" value="Registreer"></td>#}
                 </tr>
             </table>
+            {{ form_rest(registrationForm) }}
         </form>
+    {{ form_end(registrationForm)}}
     </div>
 {% endblock %}

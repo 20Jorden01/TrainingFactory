@@ -6,7 +6,7 @@ input{
 input[type=radio]{
     width: auto;
 }
-input[type=submit]{
+button{
     border: none;
     border: 1px solid black;
     border-radius: 5px;
@@ -21,4 +21,10 @@ form{
     margin: 5px auto;
     display: inline-block;
     text-align: left;
+}
+form label{
+    display: none;
+}
+.radio label{
+    display: contents;
 }
