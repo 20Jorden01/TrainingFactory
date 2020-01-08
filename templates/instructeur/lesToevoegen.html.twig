@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block title %}registreren{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/login.css')}}">
+{% endblock %}
+{% block body %}
+    <div class="container justify-content-center">
+        {{ form_start(lesForm) }}
+        <form>
+            {{ form_errors(lesForm) }}
+            <h3>Lid worden</h3>
+            <p>Om gebruik te kunnen maken van de lessen moet je bij ons bekend zijn.<br>
+                Vul hieronder alle gegevens in en registreer jezelf.</p>
+            <table>
+                <tr>
+                    <td><p>datum*</p></td>
+                    <td colspan="2">{{ form_row(lesForm.time) }}</td>
+                </tr>
+                <tr>
+                    <td><p>tijd*</p></td>
+                    <td colspan="2">{{ form_row(lesForm.date) }}</td>
+                </tr>
+                <tr>
+                    <td><p>locatie*</p></td>
+                    <td colspan="2">{{ form_row(lesForm.location) }}</td>
+                </tr>
+                <tr>
+                    <td><p>max personen*</p></td>
+                    <td colspan="2">{{ form_row(lesForm.max_persons) }}</td>
+                </tr>
+                <tr>
+                    <td><p>training*</p></td>
+                    <td colspan="2">{{ form_row(lesForm.training_id) }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button>Toevoegen</button></td>
+                    {#                    <td><input type="submit" name="registreer" value="Registreer"></td>#}
+                </tr>
+            </table>
+            {{ form_rest(lesForm) }}
+        </form>
+        {{ form_end(lesForm)}}
+    </div>
+{% endblock %}

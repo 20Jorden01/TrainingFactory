@@ -24,12 +24,17 @@ class RegistrationFormType extends AbstractType
             ->add('firstname')
             ->add('lastname')
             ->add('preprovision')
-            ->add('dateofbirth', DateType::class)
+            ->add('dateofbirth', DateType::class, array(
+                'years' => range(date('Y'), date('Y')-120),
+                'months' => range(date('m'), 12),
+                'days' => range(date('d'), 31),
+            ))
             ->add('email', EmailType::class)
             ->add('gender',ChoiceType::class,
                 array('choices' => array(
                     'man' => 'male',
-                    'vrouw' => 'female'),
+                    'vrouw' => 'female',
+                    'anders' => '-'),
                     'multiple'=>false,'expanded'=>true, 'label'=>false))
 //            ->add('agreeTerms', CheckboxType::class, [
 //                'mapped' => false,
@@ -63,15 +68,5 @@ class RegistrationFormType extends AbstractType
         $resolver->setDefaults([
             'data_class' => User::class,
         ]);
-    }
-
-    public function getYears(){
-        $years = [];
-        $year = date('Y');
-        for($i = 0; $i >= 130; $i++){
-            array_push($years, $year);
-            $year--;
-        }
-        return $years;
     }
 }

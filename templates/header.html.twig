@@ -25,24 +25,7 @@
         </div>
     </div>
 {% endblock %}
-{% block nav %}
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="../../">home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/inschrijven">inschrijven op les</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">overzicht inschijvingen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">gegevens lid wijzigen</a>
-            </li>
-        </ul>
-    </nav>
-{% endblock %}
+{% include 'nav.html.twig' %}
 {% block fotos %}
     <div class="container-fluid">
         <div class="card-group">

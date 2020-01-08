@@ -42,6 +42,12 @@ class Lesson
      */
     private $training_id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="lessons")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $intructor;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +109,18 @@ class Lesson
     public function setTrainingId(?Training $training_id): self
     {
         $this->training_id = $training_id;
+
+        return $this;
+    }
+
+    public function getIntructor(): ?user
+    {
+        return $this->intructor;
+    }
+
+    public function setIntructor(?user $intructor): self
+    {
+        $this->intructor = $intructor;
 
         return $this;
     }

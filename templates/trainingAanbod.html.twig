@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}Training aanbod{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/lessen.css')}}">
+{% endblock %}
+{% block body%}
+    <ul style="list-style-type: none; padding-inline-start: 3px">
+        {% for training in trainingen %}
+            <li>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="{{ asset(training.getImg()) }}">
+                        {{ training.getName() }}
+                    </div>
+                    <div class="col-sm-8">
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

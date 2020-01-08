@@ -27,6 +27,12 @@ class Registration
      */
     private $lesson;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="registrations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $lid;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +58,18 @@ class Registration
     public function setLesson(?Lesson $lesson): self
     {
         $this->lesson = $lesson;
+
+        return $this;
+    }
+
+    public function getLid(): ?User
+    {
+        return $this->lid;
+    }
+
+    public function setLid(?User $lid): self
+    {
+        $this->lid = $lid;
 
         return $this;
     }
