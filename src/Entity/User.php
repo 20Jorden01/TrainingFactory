@@ -295,4 +295,8 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getDateofbirth2(){
+        return $this->dateofbirth->format('Y-m-d');
+    }
 }

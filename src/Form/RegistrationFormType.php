@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -23,7 +24,7 @@ class RegistrationFormType extends AbstractType
             ->add('username')
             ->add('firstname')
             ->add('lastname')
-            ->add('preprovision')
+            ->add('preprovision', TextType::class ,['required' => false])
             ->add('dateofbirth', DateType::class, array(
                 'years' => range(date('Y'), date('Y')-120),
                 'months' => range(date('m'), 12),

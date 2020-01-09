@@ -5,30 +5,29 @@
     <link rel="stylesheet" href="{{ asset('css/lessen.css')}}">
 {% endblock %}
 {% block body%}
-    <p>Vandaag - dinsdag - woensdag - donderdag - vrijdag - zaterdag - zondag</p>
+    <table class="datums">
+        <tr>
+            {% for datum in datums %}
+                <td class="datum {% if loop.index0 == 0 %}vandaag{% endif %}"><a href="/inschrijven/{{ datum }}">{{ datums2[loop.index0] }}</a></td>
+            {% endfor %}
+        </tr>
+    </table>
     <ul style="list-style-type: none; padding-inline-start: 3px">
     {% for training in trainingen %}
         <li>
             <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-2">
             <img src="{{ asset(training.getImg()) }}">
-            {{ training.getName() }}
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-10">
+                <h2>{{ training.getName() }}</h2>
                 <table>
                     <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
+                        {% for les in lessen  %}
+                            {% if (training == les.getTrainingId()) %}
+                        <td>{{ les.getTime2() }}</td>
+                            {% endif %}
+                        {% endfor %}
                     </tr>
                 </table>
             </div>

@@ -4,15 +4,22 @@
             <li class="nav-item">
                 <a class="nav-link" href="../../">home</a>
             </li>
+            {% if is_granted('ROLE_USER') %}
             <li class="nav-item">
                 <a class="nav-link" href="/inschrijven">inschrijven op les</a>
             </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profiel">profiel</a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_INSTRUCTEUR') %}
             <li class="nav-item">
-                <a class="nav-link" href="#">overzicht inschijvingen</a>
+                <a class="nav-link" href="/lestoevoegen">Les toevoegen</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">gegevens lid wijzigen</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/lessen">Beheer lessen</a>
+                </li>
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link" href="/gedragsregels">Gedragsregels</a>
             </li>

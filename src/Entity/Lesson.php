@@ -124,4 +124,14 @@ class Lesson
 
         return $this;
     }
+
+    public function getTime2()
+    {
+        return $this->time->format('H:i');
+    }
+
+    public function getDate2()
+    {
+        return $this->date->format('Y-m-d');
+    }
 }

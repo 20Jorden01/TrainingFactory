@@ -28,3 +28,18 @@ form label{
 .radio label{
     display: contents;
 }
+
+td{
+    text-align: left;
+}
+.tekst{
+    border: none;
+    border-bottom: black solid 1px;
+    width: 70%;
+}
+table{
+    margin-bottom: 5px;
+}
+td p{
+    margin: auto 10px;
+}

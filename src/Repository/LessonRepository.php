@@ -22,19 +22,22 @@ class LessonRepository extends ServiceEntityRepository
     // /**
     //  * @return Lesson[] Returns an array of Lesson objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function findLessons($date)
     {
         return $this->createQueryBuilder('l')
-            ->andWhere('l.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('l.id', 'ASC')
-            ->setMaxResults(10)
+//            ->andWhere('l.date BETWEEN :date AND :date2')
+//            ->setParameter('date', date('Y-m-d'))
+//            ->setParameter('date2', date('Y-m-d', strtotime(' +7 day')))
+            ->andWhere('l.date = :date')
+            ->setParameter('date', $date)
+            ->orderBy('l.date', 'ASC')
+            //->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Lesson

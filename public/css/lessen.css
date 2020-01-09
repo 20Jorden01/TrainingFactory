@@ -8,5 +8,24 @@ table{
 }
 
 td{
-    width: 40px;
+    width: 50px;
+}
+
+.datum{
+    text-align: center;
+    width: 100px;
+}
+
+.datum a{
+    color: black;
+    font-weight: bold;
+}
+
+.vandaag{
+    background-color: #aeaeae;
+    border-radius: 20px;
+}
+
+.datums{
+    margin-bottom: 5px;
 }
