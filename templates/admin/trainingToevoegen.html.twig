@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}Training toevoegen{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/login.css')}}">
+{% endblock %}
+{% block body %}
+    <div class="container justify-content-center">
+        <h2>Training toevoegen</h2>
+        {{ form_start(trainingForm) }}
+        <form>
+            {{ form_errors(trainingForm) }}
+            <table>
+                <tr>
+                    <td><p>Naam*</p></td>
+                    <td colspan="2">{{ form_row(trainingForm.name) }}</td>
+                </tr>
+                <tr>
+                    <td><p>Beschrijving*</p></td>
+                    <td colspan="2">{{ form_row(trainingForm.description) }}</td>
+                </tr>
+                <tr>
+                    <td><p>Duur*</p></td>
+                    <td colspan="2">{{ form_row(trainingForm.duration) }}</td>
+                </tr>
+                <tr>
+                    <td><p>Kosten*</p></td>
+                    <td colspan="2">{{ form_row(trainingForm.costs) }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button>Toevoegen</button></td>
+                </tr>
+            </table>
+            {{ form_rest(trainingForm) }}
+        </form>
+        {{ form_end(trainingForm)}}
+    </div>
+{% endblock %}

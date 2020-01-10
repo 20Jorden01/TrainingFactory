@@ -24,6 +24,11 @@ class LesToevoegenFormType extends AbstractType
     {
         $builder
             ->add('time')
+//            ->add('date',DateType::class, array(
+//                'years' => range(date('Y'), date('Y')+1),
+//                'months' => range(date('m'), 12),
+//                'days' => range(date('d'), 31),
+//            ))
             ->add('date',DateType::class, array(
                 'years' => range(date('Y'), date('Y')+1),
                 'months' => range(date('m'), 12),

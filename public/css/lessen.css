@@ -29,3 +29,11 @@ td{
 .datums{
     margin-bottom: 5px;
 }
+
+.test{
+    color: gray;
+}
+
+a, a:hover{
+    color: black;
+}

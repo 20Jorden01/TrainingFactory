@@ -2,37 +2,44 @@
 {% block title %}Inschrijven{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/lessen.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/lessen.css') }}">
 {% endblock %}
-{% block body%}
+{% block body %}
     <table class="datums">
         <tr>
             {% for datum in datums %}
-                <td class="datum {% if loop.index0 == 0 %}vandaag{% endif %}"><a href="/inschrijven/{{ datum }}">{{ datums2[loop.index0] }}</a></td>
+                <td class="datum {% if loop.index0 == 0 %}vandaag{% endif %}"><a
+                            href="/inschrijven/{{ datum }}">{{ datums2[loop.index0] }}</a></td>
             {% endfor %}
         </tr>
     </table>
     <ul style="list-style-type: none; padding-inline-start: 3px">
-    {% for training in trainingen %}
-        <li>
-            <div class="row">
-            <div class="col-sm-2">
-            <img src="{{ asset(training.getImg()) }}">
-            </div>
-            <div class="col-sm-10">
-                <h2>{{ training.getName() }}</h2>
-                <table>
-                    <tr>
-                        {% for les in lessen  %}
-                            {% if (training == les.getTrainingId()) %}
-                        <td>{{ les.getTime2() }}</td>
-                            {% endif %}
-                        {% endfor %}
-                    </tr>
-                </table>
-            </div>
-            </div>
-        </li>
-    {% endfor %}
+        {% for training in trainingen %}
+            <li>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <img src="{{ asset(training.getImg()) }}">
+                    </div>
+                    <div class="col-sm-10">
+                        <h2>{{ training.getName() }}</h2>
+                        <table>
+                            <tr>
+                                {% for les in lessen %}
+                                    {% if (training == les.getTrainingId()) %}
+                                        {% if ((les.getId() in lidLessen)) %}
+                                            <td class="test">{{ les.getTime2() }}</td>
+                                        {% else %}
+                                            <td>
+                                            <a href="{{ path('add_route_name', {'id': les.id }) }}">{{ les.getTime2() }}</a>
+                                            </td>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
     </ul>
 {% endblock %}
