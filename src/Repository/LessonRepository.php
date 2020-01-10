@@ -31,7 +31,7 @@ class LessonRepository extends ServiceEntityRepository
 //            ->setParameter('date2', date('Y-m-d', strtotime(' +7 day')))
             ->andWhere('l.date = :date')
             ->setParameter('date', $date)
-            ->orderBy('l.date', 'ASC')
+            ->orderBy('l.time', 'ASC')
             //->setMaxResults(10)
             ->getQuery()
             ->getResult()

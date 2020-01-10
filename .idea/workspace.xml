@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c50aad1f-dc33-4b32-a9fd-3135c87f9c88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LidController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LidController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lid/gegevensbeheer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lid/gegevensbeheer.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -193,7 +191,7 @@
       <workItem from="1578394365776" duration="10463000" />
       <workItem from="1578480999132" duration="10914000" />
       <workItem from="1578555909291" duration="19555000" />
-      <workItem from="1578642169606" duration="13392000" />
+      <workItem from="1578642169606" duration="14137000" />
     </task>
     <servers />
   </component>
