@@ -6,6 +6,7 @@
     {% endblock %}
     {% block body %}
         <div class="container justify-content-center">
+            <div class="row">
             <h3>{{ app.user.lastName }} {{ app.user.preprovision }} {{ app.user.lastName }}</h3>
             <table>
                 <tr>
@@ -37,5 +38,26 @@
                     <td colspan="2" class="tekst">{{ app.user.email }}</td>
                 </tr>
             </table>
+            </div>
+            <div class="row" style="margin-top: 10px">
+                <table class="table">
+                    <thead>
+                    <th>Training</th>
+                    <th>Datum</th>
+                    <th>Tijd</th>
+                    <th>Locatie</th>
+                    <th>Duur</th>
+                    </thead>
+                {% for registration in registrations %}
+                    <tr>
+                        <td>{{ registration.getLesson().getTrainingId().getName}}</td>
+                        <td>{{ registration.getLesson().getDate2()}}</td>
+                        <td>{{ registration.getLesson().getTime2()}}</td>
+                        <td>{{ registration.getLesson().getLocation()}}</td>
+                        <td>{{ registration.getLesson().getTrainingId().getDuration2()}}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
         </div>
     {% endblock %}

@@ -60,7 +60,14 @@ class LidController extends AbstractController
      * @Route("/profiel")
      */
     public function showProfiel(){
-        return $this->render('lid/gegevensbeheer.html.twig');
+
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $user = $repository->find($this->getUser());
+        $registrations = $user->getRegistrations();
+
+        return $this->render('lid/gegevensbeheer.html.twig', [
+            'registrations' => $registrations,
+        ]);
     }
 
     /**
