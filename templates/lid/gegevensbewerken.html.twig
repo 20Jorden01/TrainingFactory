@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+    {% block title %}registreren{% endblock %}
+    {% block stylesheets %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    {% endblock %}
+    {% block body %}
+        <div class="container justify-content-center">
+            <div class="row">
+                {{ form_start(lidbewerkForm) }}
+                <form>
+                <table>
+                    <thead>
+                    <th colspan="4" style="text-align: left">
+                        <h3>{{ app.user.firstName }} {{ app.user.preprovision }} {{ app.user.lastName }}</h3>
+                    </th>
+                    </thead>
+                    <tr>
+                        <td><p>GeboorteDatum</p></td>
+                        <td colspan="3" class="tekst">{{ app.user.getDateofbirth2() }}</td>
+                    </tr>
+                    <tr>
+                        <td><p>Gebruikersnaam</p></td>
+                        <td colspan="3">{{ form_row(lidbewerkForm.username) }}</td>
+                    </tr>
+                    <tr>
+                        <td><p>Man/vrouw</p></td>
+                        <td colspan="3" class="radio">{{ form_row(lidbewerkForm.gender) }}</td>
+                    </tr>
+                    <tr>
+                        <td><p>adres:</p></td>
+                        <td colspan="3" class="tekst"></td>
+                    </tr>
+                    <tr>
+                        <td><p>postcode:</p></td>
+                        <td colspan="3" class="tekst"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Woonplaats:</p></td>
+                        <td colspan="3" class="tekst"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Email:</p></td>
+                        <td colspan="3">{{ form_row(lidbewerkForm.email) }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3"><button>opslaan</button></td>
+                    </tr>
+                </table>
+                    {{ form_rest(lidbewerkForm) }}
+                </form>
+                {{ form_end(lidbewerkForm)}}
+            </div>
+        </div>
+    {% endblock %}

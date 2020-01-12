@@ -7,8 +7,12 @@
     {% block body %}
         <div class="container justify-content-center">
             <div class="row">
-            <h3>{{ app.user.lastName }} {{ app.user.preprovision }} {{ app.user.lastName }}</h3>
             <table>
+                <thead>
+                <th colspan="3" style="text-align: left">
+                <h3>{{ app.user.firstName }} {{ app.user.preprovision }} {{ app.user.lastName }}</h3>
+                </th>
+                </thead>
                 <tr>
                     <td><p>GeboorteDatum</p></td>
                     <td colspan="2" class="tekst">{{ app.user.getDateofbirth2() }}</td>
@@ -36,6 +40,10 @@
                 <tr>
                     <td><p>Email:</p></td>
                     <td colspan="2" class="tekst">{{ app.user.email }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2" class="tekst"><a href="{{path('lidgegevensbewerken', {'id': app.user.id }) }})}}">bewerken</a></td>
                 </tr>
             </table>
             </div>

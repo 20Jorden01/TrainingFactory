@@ -8,9 +8,12 @@ use App\Entity\Lesson;
 use App\Entity\Registration;
 use App\Entity\Training;
 use App\Entity\User;
+use App\Form\LidBewerkenFormType;
+use App\Form\RegistrationFormType;
 use App\Repository\TrainingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class LidController extends AbstractController
@@ -57,7 +60,7 @@ class LidController extends AbstractController
     }
 
     /**
-     * @Route("/profiel")
+     * @Route("/profiel", name="profiel")
      */
     public function showProfiel(){
 
@@ -86,5 +89,32 @@ class LidController extends AbstractController
         $entityManager->persist($registratie);
         $entityManager->flush();
         return $this->redirectToRoute('inschrijven');
+    }
+
+    /**
+     * @Route("/lid/edit/{id}", name="lidgegevensbewerken")
+     */
+    public function update($id, Request $request)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $lid = $entityManager->getRepository(User::class)->find($id);
+
+        $form = $this->createForm(LidBewerkenFormType::class, $lid);
+        $form->handleRequest($request);
+
+        if (!$lid) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            return $this->redirectToRoute('profiel');
+        }
+
+        return $this->render('lid/gegevensbewerken.html.twig', [
+            'id' => $lid->getId(),
+            'lidbewerkForm' => $form->createView(),
+        ]);
     }
 }
