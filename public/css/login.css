@@ -43,3 +43,7 @@ table{
 td p{
     margin: auto 10px;
 }
+
+.table td {
+    text-align: center;
+}

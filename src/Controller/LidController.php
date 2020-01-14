@@ -9,7 +9,6 @@ use App\Entity\Registration;
 use App\Entity\Training;
 use App\Entity\User;
 use App\Form\LidBewerkenFormType;
-use App\Form\RegistrationFormType;
 use App\Repository\TrainingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -116,5 +115,19 @@ class LidController extends AbstractController
             'id' => $lid->getId(),
             'lidbewerkForm' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @param Registration $entity
+     *
+     * @Route("/{id}/entity-remove", requirements={"id" = "\d+"}, name="delete_route_name")
+     * @return RedirectResponse
+     *
+     */
+    public function deleteActionName(Registration $entity){
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($entity);
+        $entityManager->flush();
+        return $this->redirectToRoute('profiel');
     }
 }

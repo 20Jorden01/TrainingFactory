@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Lesson;
+use App\Entity\Registration;
 use App\Entity\User;
 use App\Form\LesToevoegenFormType;
 use App\Form\RegistrationFormType;
@@ -58,17 +59,20 @@ class InstructeurController extends AbstractController
     public function showLessen(){
         $repository = $this->getDoctrine()->getRepository(Lesson::class);
         $lessen = $repository->findBy(['intructor' => $this->getUser()], ['date' => 'ASC', 'training_id' => 'ASC', 'time' => 'ASC']);
+        $repository2 = $this->getDoctrine()->getRepository(Registration::class);
+        $test = $repository2->findAll();
 
 
         return $this->render('instructeur/lessen.html.twig',[
             'lessen' => $lessen,
+            'registrations' => $test,
         ]);
     }
 
     /**
      * @param Lesson $entity
      *
-     * @Route("/{id}/entity-remove", requirements={"id" = "\d+"}, name="delete_route_name")
+     * @Route("/{id}/entity-remove", requirements={"id" = "\d+"}, name="deleteLes")
      * @return RedirectResponse
      *
      */

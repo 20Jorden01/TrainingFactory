@@ -24,8 +24,20 @@
                 <td>{{ les.getLocation() }}</td>
                 <td>{{ les.getTrainingId().getName }}</td>
                 <td>{{ les.getMaxPersons() }}</td>
-                <td>Deelnemers</td>
-                <td><a href="{{ path('delete_route_name', {'id': les.id }) }}">Delete</a></td>
+                <td>
+                    <div class="dropdown">
+                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                            Deelnemers
+                        </button>
+                        <div class="dropdown-menu">
+                            {%  for reg in registrations %}
+                            {% if(reg.lesson.id == les.id) %}
+                                <div class="dropdown-item">{{ reg.getLid().firstname }}</div>
+                            {% endif %}
+                            {% endfor %}
+                    </div>
+                </td>
+                <td><a href="{{ path('deleteLes', {'id': les.id }) }}">Delete</a></td>
             </tr>
         {% endfor %}
     </table>
