@@ -4,17 +4,20 @@
 namespace App\Controller;
 
 
+use App\Entity\Lesson;
+use App\Entity\Registration;
 use App\Entity\Training;
 use App\Form\TrainingToevoegenFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Require ROLE_ADMIN for *every* controller method in this class.
  *
- * @IsGranted("ROLE_USER")
+ * @IsGranted("ROLE_ADMIN")
  */
 class AdminController extends AbstractController
 {
@@ -37,5 +40,31 @@ class AdminController extends AbstractController
         return $this->render('admin/trainingToevoegen.html.twig', [
             'trainingForm' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/trainingen", name="trainingBeheer")
+     */
+    public function showTrainingen(){
+        $repository = $this->getDoctrine()->getRepository(Training::class);
+        $trainingen = $repository->findAll();
+
+        return $this->render('admin/trainingBeheer.html.twig',[
+            'trainingen' => $trainingen,
+        ]);
+    }
+
+    /**
+     * @param Training $entity
+     *
+     * @Route("/{id}/training-remove", requirements={"id" = "\d+"}, name="deleteTraining")
+     * @return RedirectResponse
+     *
+     */
+    public function deleteActionName(Training $entity){
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($entity);
+        $entityManager->flush();
+        return $this->redirectToRoute('trainingBeheer');
     }
 }

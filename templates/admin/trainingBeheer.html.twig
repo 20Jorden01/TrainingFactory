@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}beheer lessen{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/lessenbeheer.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <table class="table table-bordered">
+            <h2>Training beheer</h2>
+            <thead>
+            <th>Naam</th>
+            <th>Beschrijving</th>
+            <th>Duur</th>
+            <th>Kosten</th>
+            <th>Aanpassen</th>
+            </thead>
+            {% for training in trainingen %}
+                <tr>
+                    <td>{{ training.name }}</td>
+                    <td>{{ training.description }}</td>
+                    <td>{{ training.getDuration2() }}</td>
+                    <td>{{ training.costs }}</td>
+                    <td>edit</td>
+                    <td><a href="{{ path('deleteTraining', {'id': training.id }) }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
