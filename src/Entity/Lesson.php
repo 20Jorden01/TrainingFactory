@@ -134,4 +134,14 @@ class Lesson
     {
         return $this->date->format('Y-m-d');
     }
+
+    public function getDeelnemersAantal($registrations, $lesid){
+        $aantal = 0;
+        foreach($registrations as $reg){
+            if($reg->getLesson()->getId() == $lesid ){
+                $aantal ++;
+            }
+        }
+        return $aantal;
+    }
 }

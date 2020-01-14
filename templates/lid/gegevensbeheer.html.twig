@@ -64,7 +64,7 @@
                         <td>{{ registration.getLesson().getTime2()}}</td>
                         <td>{{ registration.getLesson().getLocation()}}</td>
                         <td>{{ registration.getLesson().getTrainingId().getDuration2()}}</td>
-                        <td><a href="{{ path('delete_route_name', {'id': registration.id }) }}"><button>Uitschrijven</button></a></td>
+                        <td><a href="{{ path('deleteRegistration', {'id': registration.id }) }}"><button>Uitschrijven</button></a></td>
                     </tr>
                 {% endfor %}
                 </table>

@@ -26,6 +26,8 @@ class LidController extends AbstractController
         }
         $repository = $this->getDoctrine()->getRepository(Training::class);
         $trainingen = $repository->findAll();
+        $repository2 = $this->getDoctrine()->getRepository(Registration::class);
+        $test = $repository2->findAll();
         $lessen = $this->getDoctrine()
             ->getRepository(Lesson::class)
         ->findLessons(date('Y-m-d', strtotime($slug)));
@@ -55,6 +57,7 @@ class LidController extends AbstractController
             'datums' => $datums,
             'datums2' => $datums2,
             'lidLessen' => $lidLessen,
+            'registrations' => $test,
         ]);
     }
 
@@ -120,7 +123,7 @@ class LidController extends AbstractController
     /**
      * @param Registration $entity
      *
-     * @Route("/{id}/entity-remove", requirements={"id" = "\d+"}, name="delete_route_name")
+     * @Route("/{id}/registration-remove", requirements={"id" = "\d+"}, name="deleteRegistration")
      * @return RedirectResponse
      *
      */

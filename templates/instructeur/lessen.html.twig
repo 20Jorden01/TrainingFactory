@@ -2,44 +2,43 @@
 {% block title %}beheer lessen{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/lessenbeheer.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/lessenbeheer.css') }}">
 {% endblock %}
 {% block body %}
     <div class="container">
-    <table class="table table-bordered">
-        <h2>Lessen beheer</h2>
-        <thead>
-        <th>Datum</th>
-        <th>Tijd</th>
-        <th>plaats</th>
-        <th>Sport</th>
-        <th>Aantal ingeschreven deelnemers</th>
-        <th>Deelnemerlijst</th>
-        <th>Aanpassen</th>
-        </thead>
-        {% for les in lessen %}
-            <tr>
-                <td>{{ les.getDate2() }}</td>
-                <td>{{ les.getTime2() }}</td>
-                <td>{{ les.getLocation() }}</td>
-                <td>{{ les.getTrainingId().getName }}</td>
-                <td>{{ les.getMaxPersons() }}</td>
-                <td>
-                    <div class="dropdown">
+        <table class="table table-bordered">
+            <h2>Lessen beheer</h2>
+            <thead>
+            <th>Datum</th>
+            <th>Tijd</th>
+            <th>plaats</th>
+            <th>Sport</th>
+            <th>Aantal ingeschreven deelnemers</th>
+            <th>Deelnemerlijst</th>
+            <th>Aanpassen</th>
+            </thead>
+            {% for les in lessen %}
+                <tr>
+                    <td>{{ les.getDate2() }}</td>
+                    <td>{{ les.getTime2() }}</td>
+                    <td>{{ les.getLocation() }}</td>
+                    <td>{{ les.getTrainingId().getName }}</td>
+                    <td>{{ les.getDeelnemersAantal(registrations, les.id) }}</td>
+                    <td class="dropdown">
                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
                             Deelnemers
                         </button>
                         <div class="dropdown-menu">
-                            {%  for reg in registrations %}
-                            {% if(reg.lesson.id == les.id) %}
-                                <div class="dropdown-item">{{ reg.getLid().firstname }}</div>
-                            {% endif %}
+                            {% for reg in registrations %}
+                                {% if(reg.lesson.id == les.id) %}
+                                    <div class="dropdown-item">{{ reg.getLid().firstname }} {{ reg.getLid().preprovision }} {{ reg.getLid().lastname }}</div>
+                                {% endif %}
                             {% endfor %}
-                    </div>
-                </td>
-                <td><a href="{{ path('deleteLes', {'id': les.id }) }}">Delete</a></td>
-            </tr>
-        {% endfor %}
-    </table>
+                        </div>
+                    </td>
+                    <td><a href="{{ path('deleteLes', {'id': les.id }) }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
 {% endblock %}

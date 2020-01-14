@@ -26,7 +26,7 @@
                             <tr>
                                 {% for les in lessen %}
                                     {% if (training == les.getTrainingId()) %}
-                                        {% if ((les.getId() in lidLessen)) %}
+                                        {% if ((les.getId() in lidLessen) or (les.maxPersons - les.getDeelnemersAantal(registrations, les.id) <= 0)) %}
                                             <td class="test">{{ les.getTime2() }}</td>
                                         {% else %}
                                             <td>
