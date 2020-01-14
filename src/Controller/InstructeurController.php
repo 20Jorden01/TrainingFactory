@@ -9,11 +9,17 @@ use App\Entity\Registration;
 use App\Entity\User;
 use App\Form\LesToevoegenFormType;
 use App\Form\RegistrationFormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Require ROLE_ADMIN for *every* controller method in this class.
+ *
+ * @IsGranted("ROLE_INSTRUCTEUR")
+ */
 class InstructeurController extends AbstractController
 {
 

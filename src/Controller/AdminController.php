@@ -6,10 +6,16 @@ namespace App\Controller;
 
 use App\Entity\Training;
 use App\Form\TrainingToevoegenFormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Require ROLE_ADMIN for *every* controller method in this class.
+ *
+ * @IsGranted("ROLE_USER")
+ */
 class AdminController extends AbstractController
 {
     /**

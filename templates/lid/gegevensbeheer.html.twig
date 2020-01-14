@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-    {% block title %}registreren{% endblock %}
+    {% block title %}Profiel{% endblock %}
     {% block stylesheets %}
         {{ parent() }}
         <link rel="stylesheet" href="{{ asset('css/login.css') }}">
@@ -59,7 +59,7 @@
                     </thead>
                 {% for registration in registrations %}
                     <tr>
-                        <td>{{ registration.getLesson().getTrainingId().getName}}</td>
+                        <td>{{ registration.lesson.trainingid.getName}}</td>
                         <td>{{ registration.getLesson().getDate2()}}</td>
                         <td>{{ registration.getLesson().getTime2()}}</td>
                         <td>{{ registration.getLesson().getLocation()}}</td>

@@ -3,12 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c50aad1f-dc33-4b32-a9fd-3135c87f9c88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InstructeurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InstructeurController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/LidController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LidController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lesson.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LessonRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LessonRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/instructeur/lessen.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/instructeur/lessen.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lessen.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lessen.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/instructeur/lesToevoegen.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/instructeur/lesToevoegen.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/lid/gegevensbeheer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lid/gegevensbeheer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lid/gegevensbewerken.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lid/gegevensbewerken.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +200,7 @@
       <workItem from="1578555909291" duration="19555000" />
       <workItem from="1578642169606" duration="14137000" />
       <workItem from="1578823048156" duration="3011000" />
-      <workItem from="1578988605817" duration="9041000" />
+      <workItem from="1578988605817" duration="11157000" />
     </task>
     <servers />
   </component>
