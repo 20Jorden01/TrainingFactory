@@ -25,9 +25,9 @@ class LidBewerkenFormType extends AbstractType
             ->add('email', EmailType::class)
             ->add('gender',ChoiceType::class,
                 array('choices' => array(
-                    'man' => 'male',
-                    'vrouw' => 'female',
-                    'anders' => '-'),
+                    'man' => 'man',
+                    'vrouw' => 'vrouw',
+                    'anders' => 'anders'),
                     'multiple'=>false,'expanded'=>true, 'label'=>false));
     }
 

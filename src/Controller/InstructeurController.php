@@ -6,9 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Lesson;
 use App\Entity\Registration;
-use App\Entity\User;
 use App\Form\LesToevoegenFormType;
-use App\Form\RegistrationFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -22,20 +20,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class InstructeurController extends AbstractController
 {
-
-    /**
-     * @Route("/contact")
-     */
-    public function showContact(){
-        return $this->render('contact.html.twig');
-    }
-
-    /**
-     * @Route("/gedragsregels")
-     */
-    public function showGedragRegels(){
-        return $this->render('gedragsregels.html.twig');
-    }
 
     /**
      * @Route("/lestoevoegen")

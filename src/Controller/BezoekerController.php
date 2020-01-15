@@ -12,6 +12,13 @@ class BezoekerController extends AbstractController
 {
 
     /**
+     * @Route("/", name="homepagina")
+     */
+    public function homePagina(){
+        return $this->render('homePagina.html.twig');
+    }
+
+    /**
      * @Route("/contact")
      */
     public function show(){
@@ -26,7 +33,7 @@ class BezoekerController extends AbstractController
     }
 
     /**
-     * @Route("/training_aanbod")
+     * @Route("/training_aanbod", name="trainingAanbod")
      */
     public function showAanbodTrainingen(){
         $repository = $this->getDoctrine()->getRepository(Training::class);

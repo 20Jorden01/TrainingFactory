@@ -57,7 +57,7 @@
                     <th>Duur</th>
                     <th>Uitschijven</th>
                     </thead>
-                {% for registration in registrations %}
+                {% for registration in registrations|sort((a, b) => a.lesson.time <=> b.lesson.time)|sort((a, b) => a.lesson.date <=> b.lesson.date) %}
                     <tr>
                         <td>{{ registration.lesson.training.getName}}</td>
                         <td>{{ registration.getLesson().getDate2()}}</td>

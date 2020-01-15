@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+}
+
 .logo{
     height: 106px;
     width: 184px;
@@ -6,6 +10,7 @@
 
 .acount{
     text-align: right;
+    border-left:black 1px solid;
 }
 
 .acount p{

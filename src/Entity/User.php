@@ -299,4 +299,12 @@ class User implements UserInterface
     public function getDateofbirth2(){
         return $this->dateofbirth->format('Y-m-d');
     }
+
+    public function getRole2(){
+        $roles = $this->getRoles();
+
+        $role = str_replace("ROLE_", "", $roles[0]);
+
+        return strtolower( $role );
+    }
 }

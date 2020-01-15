@@ -4,23 +4,21 @@
 {% block header %}
     <div class="container-fluid">
         <div class="row">
-            <div class="logo">
+            <div class="col-sm-2">
                 <img class="logo" src="{{ asset('img/logo.png') }}" alt="logo">
             </div>
-            <div class="col">
+            <div class="col-sm-8">
                 <h1>Training centrum</h1>
                 <h1>Den Haag</h1>
             </div>
-            <div class="col">
-                <div class="acount">
+            <div class="col-sm-2 acount">
                     {% if app.user %}
                         <p>Welkom {{ app.user.username }}</p>
-                        <p>{{ app.user.getRole }}</p>
+                        <p>-{{ app.user.getRole2 }}-</p>
                         <a href="{{ path('app_logout') }}"><button>uitloggen</button></a>
                         {% else %}
                             <a href="{{ path('app_login') }}"><button>inloggen</button></a>
                     {% endif %}
-                </div>
             </div>
         </div>
     </div>

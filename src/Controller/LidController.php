@@ -110,11 +110,6 @@ class LidController extends AbstractController
         $form = $this->createForm(LidBewerkenFormType::class, $lid);
         $form->handleRequest($request);
 
-        if (!$lid) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
             return $this->redirectToRoute('profiel');

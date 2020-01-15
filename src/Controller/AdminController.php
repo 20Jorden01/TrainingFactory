@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\Lesson;
 use App\Entity\Registration;
 use App\Entity\Training;
+use App\Form\TrainingBewerkenFormType;
 use App\Form\TrainingToevoegenFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -67,4 +68,28 @@ class AdminController extends AbstractController
         $entityManager->flush();
         return $this->redirectToRoute('trainingBeheer');
     }
+
+    /**
+     * @Route("/Training/edit/{id}", name="trainingBewerken")
+     */
+    public function update($id, Request $request)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $training = $entityManager->getRepository(Training::class)->find($id);
+
+        $form = $this->createForm(TrainingBewerkenFormType::class, $training);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            return $this->redirectToRoute('trainingBeheer');
+        }
+
+        return $this->render('admin/trainingBewerken.html.twig', [
+            'id' => $training->getId(),
+            'trainingbewerkForm' => $form->createView(),
+        ]);
+    }
+
+
 }

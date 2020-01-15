@@ -21,7 +21,7 @@
                     <td>{{ training.description }}</td>
                     <td>{{ training.getDuration2() }}</td>
                     <td>{{ training.costs }}</td>
-                    <td>edit</td>
+                    <td><a href="{{path('trainingBewerken', {'id': training.id }) }}) }}">bewerken</a></td>
                     <td><a href="{{ path('deleteTraining', {'id': training.id }) }}">Delete</a></td>
                 </tr>
             {% endfor %}
