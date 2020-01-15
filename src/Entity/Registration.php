@@ -22,16 +22,16 @@ class Registration
     private $payment;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Lesson")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $lesson;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="registrations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $lid;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Lesson", inversedBy="registrations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $lesson;
 
     public function getId(): ?int
     {

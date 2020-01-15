@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -37,16 +39,26 @@ class Lesson
     private $maxPersons;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Training")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $training_id;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="lessons")
      * @ORM\JoinColumn(nullable=false)
      */
     private $intructor;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Training", inversedBy="training")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $training;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Registration", mappedBy="lesson", orphanRemoval=true)
+     */
+    private $registrations;
+
+    public function __construct()
+    {
+        $this->registrations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -143,5 +155,48 @@ class Lesson
             }
         }
         return $aantal;
+    }
+
+    public function getTraining(): ?Training
+    {
+        return $this->training;
+    }
+
+    public function setTraining(?Training $training): self
+    {
+        $this->training = $training;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Registration[]
+     */
+    public function getRegistrations(): Collection
+    {
+        return $this->registrations;
+    }
+
+    public function addRegistration(Registration $registration): self
+    {
+        if (!$this->registrations->contains($registration)) {
+            $this->registrations[] = $registration;
+            $registration->setLesson($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRegistration(Registration $registration): self
+    {
+        if ($this->registrations->contains($registration)) {
+            $this->registrations->removeElement($registration);
+            // set the owning side to null (unless already changed)
+            if ($registration->getLesson() === $this) {
+                $registration->setLesson(null);
+            }
+        }
+
+        return $this;
     }
 }

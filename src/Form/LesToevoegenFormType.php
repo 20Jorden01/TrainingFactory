@@ -36,7 +36,7 @@ class LesToevoegenFormType extends AbstractType
             ))
             ->add('location')
             ->add('max_persons')
-            ->add('training_id',EntityType::class, [
+            ->add('training',EntityType::class, [
                 'class' => Training::class,
                 'choice_label' => 'name',
                 'expanded' => false,

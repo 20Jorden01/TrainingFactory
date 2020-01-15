@@ -64,7 +64,7 @@ class InstructeurController extends AbstractController
      */
     public function showLessen(){
         $repository = $this->getDoctrine()->getRepository(Lesson::class);
-        $lessen = $repository->findBy(['intructor' => $this->getUser()], ['date' => 'ASC', 'training_id' => 'ASC', 'time' => 'ASC']);
+        $lessen = $repository->findBy(['intructor' => $this->getUser()], ['date' => 'ASC', 'training' => 'ASC', 'time' => 'ASC']);
         $repository2 = $this->getDoctrine()->getRepository(Registration::class);
         $test = $repository2->findAll();
 

@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c50aad1f-dc33-4b32-a9fd-3135c87f9c88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/admin/trainingBeheer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InstructeurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InstructeurController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LidController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LidController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Lesson.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Lesson.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Training.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Training.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/LesToevoegenFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/LesToevoegenFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/instructeur/lesToevoegen.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/instructeur/lesToevoegen.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/instructeur/lessen.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/instructeur/lessen.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lessen.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lessen.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lid/gegevensbeheer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lid/gegevensbeheer.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +166,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../xampp/htdocs/opdracht2.php" />
+    <property name="last_opened_file_path" value="C:/xampp/htdocs/opdracht2.php" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -197,6 +204,7 @@
       <workItem from="1578642169606" duration="14137000" />
       <workItem from="1578823048156" duration="3011000" />
       <workItem from="1578988605817" duration="15014000" />
+      <workItem from="1579075907375" duration="3197000" />
     </task>
     <servers />
   </component>

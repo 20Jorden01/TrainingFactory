@@ -90,7 +90,7 @@ class LidController extends AbstractController
      */
     public function inschrijven(Lesson $entity){
         $registratie = new Registration();
-        $registratie->setPayment($entity->getTrainingId()->getCosts());
+        $registratie->setPayment($entity->getTraining()->getCosts());
         $registratie->setLid($this->getUser());
         $registratie->setLesson($entity);
         $entityManager = $this->getDoctrine()->getManager();

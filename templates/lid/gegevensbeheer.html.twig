@@ -59,11 +59,11 @@
                     </thead>
                 {% for registration in registrations %}
                     <tr>
-                        <td>{{ registration.lesson.trainingid.getName}}</td>
+                        <td>{{ registration.lesson.training.getName}}</td>
                         <td>{{ registration.getLesson().getDate2()}}</td>
                         <td>{{ registration.getLesson().getTime2()}}</td>
                         <td>{{ registration.getLesson().getLocation()}}</td>
-                        <td>{{ registration.getLesson().getTrainingId().getDuration2()}}</td>
+                        <td>{{ registration.getLesson().getTraining().getDuration2()}}</td>
                         <td><a href="{{ path('deleteRegistration', {'id': registration.id }) }}"><button>Uitschrijven</button></a></td>
                     </tr>
                 {% endfor %}

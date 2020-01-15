@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -36,6 +38,16 @@ class Training
      * @ORM\Column(type="decimal", precision=6, scale=2)
      */
     private $costs;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="training", orphanRemoval=true)
+     */
+    private $training;
+
+    public function __construct()
+    {
+        $this->training = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -99,5 +111,36 @@ class Training
     {
         $test = "img/$this->name.png";
         return strtolower($test);
+    }
+
+    /**
+     * @return Collection|Lesson[]
+     */
+    public function getTraining(): Collection
+    {
+        return $this->training;
+    }
+
+    public function addTraining(Lesson $training): self
+    {
+        if (!$this->training->contains($training)) {
+            $this->training[] = $training;
+            $training->setTraining($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTraining(Lesson $training): self
+    {
+        if ($this->training->contains($training)) {
+            $this->training->removeElement($training);
+            // set the owning side to null (unless already changed)
+            if ($training->getTraining() === $this) {
+                $training->setTraining(null);
+            }
+        }
+
+        return $this;
     }
 }
