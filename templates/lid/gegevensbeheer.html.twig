@@ -7,45 +7,46 @@
     {% block body %}
         <div class="container justify-content-center">
             <div class="row">
-            <table>
-                <thead>
-                <th colspan="3" style="text-align: left">
-                <h3>{{ app.user.firstName }} {{ app.user.preprovision }} {{ app.user.lastName }}</h3>
-                </th>
-                </thead>
-                <tr>
-                    <td><p>GeboorteDatum</p></td>
-                    <td colspan="2" class="tekst">{{ app.user.getDateofbirth2() }}</td>
-                </tr>
-                <tr>
-                    <td><p>Gebruikersnaam</p></td>
-                    <td colspan="2" class="tekst">{{ app.user.username }}</td>
-                </tr>
-                <tr>
-                    <td><p>Man/vrouw</p></td>
-                    <td colspan="2" class="tekst">{{ app.user.gender }}</td>
-                </tr>
-                <tr>
-                    <td><p>adres:</p></td>
-                    <td colspan="2" class="tekst"></td>
-                </tr>
-                <tr>
-                    <td><p>postcode:</p></td>
-                    <td colspan="2" class="tekst"></td>
-                </tr>
-                <tr>
-                    <td><p>Woonplaats:</p></td>
-                    <td colspan="2" class="tekst"></td>
-                </tr>
-                <tr>
-                    <td><p>Email:</p></td>
-                    <td colspan="2" class="tekst">{{ app.user.email }}</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="2" class="tekst"><a href="{{path('lidgegevensbewerken', {'id': app.user.id }) }})}}">bewerken</a></td>
-                </tr>
-            </table>
+                <table>
+                    <thead>
+                    <th colspan="3" style="text-align: left">
+                        <h3>{{ app.user.firstName }} {{ app.user.preprovision }} {{ app.user.lastName }}</h3>
+                    </th>
+                    </thead>
+                    <tr>
+                        <td><p>GeboorteDatum</p></td>
+                        <td colspan="2" class="tekst">{{ app.user.getDateofbirth2() }}</td>
+                    </tr>
+                    <tr>
+                        <td><p>Gebruikersnaam</p></td>
+                        <td colspan="2" class="tekst">{{ app.user.username }}</td>
+                    </tr>
+                    <tr>
+                        <td><p>Man/vrouw</p></td>
+                        <td colspan="2" class="tekst">{{ app.user.gender }}</td>
+                    </tr>
+                    <tr>
+                        <td><p>adres:</p></td>
+                        <td colspan="2" class="tekst"></td>
+                    </tr>
+                    <tr>
+                        <td><p>postcode:</p></td>
+                        <td colspan="2" class="tekst"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Woonplaats:</p></td>
+                        <td colspan="2" class="tekst"></td>
+                    </tr>
+                    <tr>
+                        <td><p>Email:</p></td>
+                        <td colspan="2" class="tekst">{{ app.user.email }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2" class="tekst"><a
+                                    href="{{ path('lidgegevensbewerken', {'id': app.user.id }) }})}}">bewerken</a></td>
+                    </tr>
+                </table>
             </div>
             <div class="row" style="margin-top: 10px">
                 <table class="table">
@@ -57,16 +58,18 @@
                     <th>Duur</th>
                     <th>Uitschijven</th>
                     </thead>
-                {% for registration in registrations|sort((a, b) => a.lesson.time <=> b.lesson.time)|sort((a, b) => a.lesson.date <=> b.lesson.date) %}
-                    <tr>
-                        <td>{{ registration.lesson.training.getName}}</td>
-                        <td>{{ registration.getLesson().getDate2()}}</td>
-                        <td>{{ registration.getLesson().getTime2()}}</td>
-                        <td>{{ registration.getLesson().getLocation()}}</td>
-                        <td>{{ registration.getLesson().getTraining().getDuration2()}}</td>
-                        <td><a href="{{ path('deleteRegistration', {'id': registration.id }) }}"><button>Uitschrijven</button></a></td>
-                    </tr>
-                {% endfor %}
+                    {% for registration in registrations|sort((a, b) => a.lesson.time <=> b.lesson.time)|sort((a, b) => a.lesson.date <=> b.lesson.date) %}
+                        <tr>
+                            <td>{{ registration.lesson.training.getName }}</td>
+                            <td>{{ registration.getLesson().getDate2() }}</td>
+                            <td>{{ registration.getLesson().getTime2() }}</td>
+                            <td>{{ registration.getLesson().getLocation() }}</td>
+                            <td>{{ registration.getLesson().getTraining().getDuration2() }}</td>
+                            <td><a href="{{ path('deleteRegistration', {'id': registration.id }) }}">
+                                    <button>Uitschrijven</button>
+                                </a></td>
+                        </tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
