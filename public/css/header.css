@@ -33,3 +33,10 @@ img{
 .card{
 margin: 0 3vw;
 }
+
+button{
+    border: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px 5px;
+}
