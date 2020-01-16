@@ -68,7 +68,7 @@
                             <td>
                                 {% if((registration.lesson().getDate() > date('-1days')) and (date()|date_modify('+15 min')|date("H:i") < registration.lesson().getTime()|date("H:i") )) %}
                                     <a href="{{ path('deleteRegistration', {'id': registration.id }) }}">
-                                        <button>Uitschrijven</button>
+                                        <button class="uitschrijven">Uitschrijven</button>
                                     </a>
                                 {% endif %}
                             </td>
