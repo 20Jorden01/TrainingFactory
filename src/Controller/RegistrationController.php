@@ -46,7 +46,7 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             // do anything else you need here, like send an email
-            return $this->redirectToRoute('app_homepagina_show');
+            return $this->redirectToRoute('homepagina');
 //            return $guardHandler->authenticateUserAndHandleSuccess(
 //                $user,
 //                $request,

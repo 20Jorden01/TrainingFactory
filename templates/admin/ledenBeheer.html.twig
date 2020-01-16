@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block title %}beheer lessen{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/lessenbeheer.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <table class="table table-bordered">
+            <h2>Leden beheer</h2>
+            <thead>
+            <th>Naam</th>
+            <th>Email</th>
+            <th>Geboortedatum</th>
+            <th>gebruikersnaam</th>
+            <th>wachtwoord reset</th>
+            <th>verwijderen</th>
+            </thead>
+            {% for lid in leden %}
+                {% if lid.id != app.user.id %}
+                <tr>
+                    <td>{{ lid.firstname }} {{ lid.preprovision }} {{ lid.lastname }}</td>
+                    <td>{{ lid.email }}</td>
+                    <td>{{ lid.dateofbirth|date('Y-m-d') }}</td>
+                    <td>{{ lid.username }}</td>
+                    <td><a href="{{ path('resetPassword', {'id': lid.id }) }}">Reset wachtwoord</a></td>
+                    <td><a href="{{ path('deleteLid', {'id': lid.id }) }}">Delete</a></td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

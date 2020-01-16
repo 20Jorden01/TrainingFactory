@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\Lesson;
 use App\Entity\Registration;
 use App\Entity\Training;
+use App\Entity\User;
 use App\Form\TrainingBewerkenFormType;
 use App\Form\TrainingToevoegenFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -14,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * Require ROLE_ADMIN for *every* controller method in this class.
@@ -89,6 +91,47 @@ class AdminController extends AbstractController
             'id' => $training->getId(),
             'trainingbewerkForm' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/leden", name="ledenBeheer")
+     */
+    public function showLeden(){
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $leden = $repository->findAll();
+
+        return $this->render('admin/ledenBeheer.html.twig',[
+            'leden' => $leden,
+        ]);
+    }
+
+    /**
+     * @param User $entity
+     *
+     * @Route("/{id}/lid-remove", requirements={"id" = "\d+"}, name="deleteLid")
+     * @return RedirectResponse
+     *
+     */
+    public function deleteLid(User $entity){
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($entity);
+        $entityManager->flush();
+        return $this->redirectToRoute('ledenBeheer');
+    }
+
+    /**
+     * @param User $entity
+     *
+     * @Route("/{id}/lid-resetwachtwoord", requirements={"id" = "\d+"}, name="resetPassword")
+     * @return RedirectResponse
+     *
+     */
+    public function resetwachtwoord(User $entity, UserPasswordEncoderInterface $passwordEncoder){
+        $entityManager = $this->getDoctrine()->getManager();
+        $entity->setPassword($passwordEncoder->encodePassword($entity, "wachtwoord"));
+        $entityManager->persist($entity);
+        $entityManager->flush();
+        return $this->redirectToRoute('ledenBeheer');
     }
 
 

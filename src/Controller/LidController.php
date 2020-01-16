@@ -16,19 +16,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
-* Require ROLE_ADMIN for *every* controller method in this class.
-*
-* @IsGranted("ROLE_USER")
-*/
+ * Require ROLE_USER for *every* controller method in this class.
+ *
+ * @IsGranted("ROLE_USER")
+ */
 class LidController extends AbstractController
 {
     /**
      * @Route("/inschrijven/{slug}", name="inschrijven")
      */
-    public function show(TrainingRepository $training, $slug = null){
-        if($slug == null){
+    public function show(TrainingRepository $training, $slug = null)
+    {
+        if ($slug == null) {
             $slug = date('Y-m-d');
         }
         $repository = $this->getDoctrine()->getRepository(Training::class);
@@ -37,24 +39,24 @@ class LidController extends AbstractController
         $test = $repository2->findAll();
         $lessen = $this->getDoctrine()
             ->getRepository(Lesson::class)
-        ->findLessons(date('Y-m-d', strtotime($slug)));
+            ->findLessons(date('Y-m-d', strtotime($slug)));
 
         $datums = [];
         $datums2 = [];
-        for($i = 0;$i <= 7; $i ++){
-            array_push($datums, date('Y-m-d', strtotime(' +' . $i .' day')));
-            if($i == 0){
+        for ($i = 0; $i <= 7; $i++) {
+            array_push($datums, date('Y-m-d', strtotime(' +' . $i . ' day')));
+            if ($i == 0) {
                 array_push($datums2, 'Vandaag');
                 continue;
             }
-            array_push($datums2, date('D j M', strtotime(' +' . $i .' day')));
+            array_push($datums2, date('D j M', strtotime(' +' . $i . ' day')));
         }
 
         $repository = $this->getDoctrine()->getRepository(User::class);
         $user = $repository->find($this->getUser());
         $registrations = $user->getRegistrations();
         $lidLessen = [];
-        foreach ($registrations as $registration){
+        foreach ($registrations as $registration) {
             array_push($lidLessen, $registration->getLesson()->getId());
         }
 
@@ -71,7 +73,8 @@ class LidController extends AbstractController
     /**
      * @Route("/profiel", name="profiel")
      */
-    public function showProfiel(){
+    public function showProfiel()
+    {
 
         $repository = $this->getDoctrine()->getRepository(User::class);
         $user = $repository->find($this->getUser());
@@ -89,21 +92,32 @@ class LidController extends AbstractController
      * @return RedirectResponse
      *
      */
-    public function inschrijven(Lesson $entity){
+    public function inschrijven(Lesson $entity)
+    {
         $registratie = new Registration();
         $registratie->setPayment($entity->getTraining()->getCosts());
         $registratie->setLid($this->getUser());
         $registratie->setLesson($entity);
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($registratie);
-        $entityManager->flush();
+
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $user = $repository->find($this->getUser());
+        $registrations = $user->getRegistrations();
+        $lidLessen = [];
+        foreach ($registrations as $registration) {
+            array_push($lidLessen, $registration->getLesson()->getId());
+        }
+        if(!in_array($entity->getId(), $lidLessen)){
+            $entityManager->flush();
+        }
         return $this->redirectToRoute('inschrijven');
     }
 
     /**
      * @Route("/lid/edit/{id}", name="lidgegevensbewerken")
      */
-    public function update($id, Request $request)
+    public function update($id, Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $lid = $entityManager->getRepository(User::class)->find($id);
@@ -112,6 +126,9 @@ class LidController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $user->setPassword($passwordEncoder->encodePassword($user, $form->get('plainPassword')->getData()));
             $entityManager->flush();
             return $this->redirectToRoute('profiel');
         }
@@ -129,7 +146,8 @@ class LidController extends AbstractController
      * @return RedirectResponse
      *
      */
-    public function deleteActionName(Registration $entity){
+    public function deleteActionName(Registration $entity)
+    {
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($entity);
         $entityManager->flush();
