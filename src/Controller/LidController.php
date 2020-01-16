@@ -128,7 +128,9 @@ class LidController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
-            $user->setPassword($passwordEncoder->encodePassword($user, $form->get('plainPassword')->getData()));
+            if(!$form->get('plainPassword')->getData() == null) {
+                $user->setPassword($passwordEncoder->encodePassword($user, $form->get('plainPassword')->getData()));
+            }
             $entityManager->flush();
             return $this->redirectToRoute('profiel');
         }

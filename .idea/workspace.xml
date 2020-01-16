@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c50aad1f-dc33-4b32-a9fd-3135c87f9c88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/admin/ledenBeheer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LidController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LidController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/LidBewerkenFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/LidBewerkenFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lid/gegevensbeheer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lid/gegevensbeheer.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/lid/gegevensbewerken.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lid/gegevensbewerken.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="c50aad1f-dc33-4b32-a9fd-3135c87f9c88" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +193,7 @@
       <workItem from="1578823048156" duration="3011000" />
       <workItem from="1578988605817" duration="15014000" />
       <workItem from="1579075907375" duration="11404000" />
-      <workItem from="1579160777959" duration="11123000" />
+      <workItem from="1579160777959" duration="11734000" />
     </task>
     <servers />
   </component>
