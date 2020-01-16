@@ -65,9 +65,14 @@
                             <td>{{ registration.getLesson().getTime2() }}</td>
                             <td>{{ registration.getLesson().getLocation() }}</td>
                             <td>{{ registration.getLesson().getTraining().getDuration2() }}</td>
-                            <td><a href="{{ path('deleteRegistration', {'id': registration.id }) }}">
-                                    <button>Uitschrijven</button>
-                                </a></td>
+                            <td>
+                                {% if((registration.lesson().getDate() > date('-1days')) and (date()|date_modify('+15 min')|date("H:i") < registration.lesson().getTime()|date("H:i") )) %}
+                                    <a href="{{ path('deleteRegistration', {'id': registration.id }) }}">
+                                        <button>Uitschrijven</button>
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td>{{ date()|date_modify('+1 hour')|date("H:i") }}</td>
                         </tr>
                     {% endfor %}
                 </table>
