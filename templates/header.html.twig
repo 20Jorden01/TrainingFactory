@@ -14,7 +14,7 @@
             <div class="col-sm-2 acount">
                     {% if app.user %}
                         <p>Welkom {{ app.user.username }}</p>
-                        <p>-{{ app.user.getRole2 }}-</p>
+                        <p>-{{ app.user.getRole2|capitalize }}-</p>
                         <a href="{{ path('app_logout') }}"><button>uitloggen</button></a>
                         {% else %}
                             <a href="{{ path('app_login') }}"><button>inloggen</button></a>

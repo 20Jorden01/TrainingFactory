@@ -13,16 +13,18 @@
             <th>Email</th>
             <th>Geboortedatum</th>
             <th>gebruikersnaam</th>
+            <th>Role</th>
             <th>wachtwoord reset</th>
             <th>verwijderen</th>
             </thead>
             {% for lid in leden %}
                 {% if lid.id != app.user.id %}
                 <tr>
-                    <td>{{ lid.firstname }} {{ lid.preprovision }} {{ lid.lastname }}</td>
+                    <td>{{ lid.firstname|capitalize }} {{ lid.preprovision }} {{ lid.lastname|capitalize }}</td>
                     <td>{{ lid.email }}</td>
                     <td>{{ lid.dateofbirth|date('Y-m-d') }}</td>
                     <td>{{ lid.username }}</td>
+                    <td>{{ lid.getRole2|capitalize }}</td>
                     <td><a href="{{ path('resetPassword', {'id': lid.id }) }}">Reset wachtwoord</a></td>
                     <td><a href="{{ path('deleteLid', {'id': lid.id }) }}">Delete</a></td>
                 </tr>

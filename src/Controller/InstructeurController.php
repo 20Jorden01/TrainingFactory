@@ -6,12 +6,15 @@ namespace App\Controller;
 
 use App\Entity\Lesson;
 use App\Entity\Registration;
+use App\Entity\User;
 use App\Form\LesToevoegenFormType;
+use App\Form\LidBewerkenFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * Require ROLE_ADMIN for *every* controller method in this class.

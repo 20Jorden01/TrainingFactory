@@ -71,7 +71,9 @@ class LidController extends AbstractController
     }
 
     /**
+     *
      * @Route("/profiel", name="profiel")
+     *
      */
     public function showProfiel()
     {

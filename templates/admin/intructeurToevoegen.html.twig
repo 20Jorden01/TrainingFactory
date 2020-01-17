@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+{% block title %}Instructeur toevoegen{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/login.css')}}">
+{% endblock %}
+{% block body %}
+    <div class="container justify-content-center">
+        {{ form_start(registrationForm) }}
+        <form>
+            {{ form_errors(registrationForm) }}
+            <h3>Instructeur toevoegen</h3>
+            <table>
+                <tr>
+                    <td><p>Voornaam*</p></td>
+                    <td colspan="2">{{ form_row(registrationForm.firstname) }}</td>
+                </tr>
+                <tr>
+                    <td><p>tussenvoegsel</p></td>
+                    <td colspan="2">{{ form_row(registrationForm.preprovision) }}</td>
+                </tr>
+                <tr>
+                    <td><p>Achternaam*</p></td>
+                    <td colspan="2">{{ form_row(registrationForm.lastname) }}</td>
+                </tr>
+                <tr>
+                    <td><p>Geboortedatum*</p></td>
+                    <td colspan="2">{{ form_row(registrationForm.dateofbirth) }}</td>
+                </tr>
+                <tr>
+                    <td><p>Gebruikersnaam*</p></td>
+                    <td>{{ form_row(registrationForm.username) }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Man/Vrouw</td>
+                    <td>
+                        <div class="radio">
+                            {{ form_row(registrationForm.gender) }}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Straat*</td>
+                    <td><input type="text" name="straat"></td>
+                </tr>
+                <tr>
+                    <td>Postcode</td>
+                    <td><input type="text" name="postcode"></td>
+                </tr>
+                <tr>
+                    <td>Stad</td>
+                    <td colspan="2"><input type="text" name="stad"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td colspan="2">{{ form_row(registrationForm.email) }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button>Toevoegen</button></td>
+                </tr>
+            </table>
+            {{ form_rest(registrationForm) }}
+        </form>
+        {{ form_end(registrationForm)}}
+    </div>
+{% endblock %}

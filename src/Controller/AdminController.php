@@ -8,14 +8,19 @@ use App\Entity\Lesson;
 use App\Entity\Registration;
 use App\Entity\Training;
 use App\Entity\User;
+use App\Form\InstructeurToevoegenFormType;
+use App\Form\RegistrationFormType;
 use App\Form\TrainingBewerkenFormType;
 use App\Form\TrainingToevoegenFormType;
+use App\Security\LoginFormAuthenticator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 
 /**
  * Require ROLE_ADMIN for *every* controller method in this class.
@@ -132,6 +137,33 @@ class AdminController extends AbstractController
         $entityManager->persist($entity);
         $entityManager->flush();
         return $this->redirectToRoute('ledenBeheer');
+    }
+
+    /**
+     * @Route("/InstructeurToevoegen", name="toevoegenInstructeur")
+     */
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator): Response
+    {
+        $user = new User();
+        $user->setRoles(["ROLE_INSTRUCTEUR"]);
+        $form = $this->createForm(InstructeurToevoegenFormType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // encode the plain password
+            $user = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $user->setPassword($passwordEncoder->encodePassword($user, 'wachtwoord'));
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('homepagina');
+        }
+
+        return $this->render('admin/intructeurToevoegen.html.twig', [
+            'registrationForm' => $form->createView(),
+        ]);
     }
 
 

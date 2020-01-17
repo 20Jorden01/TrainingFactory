@@ -43,11 +43,12 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td colspan="2" class="tekst"><a
-                                    href="{{ path('lidgegevensbewerken', {'id': app.user.id }) }})}}">bewerken</a></td>
+                        <td colspan="2" class=""><a
+                                    href="{{ path('lidgegevensbewerken', {'id': app.user.id }) }})}}"><button>Bewerken</button></a></td>
                     </tr>
                 </table>
             </div>
+            {% if is_granted('ROLE_USER')and is_granted('ROLE_INSTRUCTEUR') == false %}
             <div class="row" style="margin-top: 10px">
                 <table class="table">
                     <thead>
@@ -76,5 +77,6 @@
                     {% endfor %}
                 </table>
             </div>
+            {% endif %}
         </div>
     {% endblock %}
