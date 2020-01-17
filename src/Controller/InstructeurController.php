@@ -36,6 +36,7 @@ class InstructeurController extends AbstractController
 
             $entityManager->persist($les);
             $entityManager->flush();
+            return $this->redirectToRoute('lessenBeheer');
         }
 
         return $this->render('instructeur/lesToevoegen.html.twig', [
@@ -44,7 +45,7 @@ class InstructeurController extends AbstractController
     }
 
     /**
-     * @Route("/lessen")
+     * @Route("/lessen", name="lessenBeheer")
      */
     public function showLessen(){
         $repository = $this->getDoctrine()->getRepository(Lesson::class);
@@ -70,7 +71,28 @@ class InstructeurController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($entity);
         $entityManager->flush();
-        return $this->redirectToRoute('app_instructeur_showlessen');
+        return $this->redirectToRoute('lessenBeheer');
+    }
+
+    /**
+     * @Route("/lesbewerken/{id}", name="bewerkLes")
+     */
+    public function showlesBewerken(Request $request, $id){
+        $entityManager = $this->getDoctrine()->getManager();
+        $les = $entityManager->getRepository(Lesson::class)->find($id);
+        $form = $this->createForm(LesToevoegenFormType::class, $les);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $les = $form->getData();
+            $entityManager->persist($les);
+            $entityManager->flush();
+            return $this->redirectToRoute('lessenBeheer');
+        }
+
+        return $this->render('instructeur/lesBewerken.html.twig', [
+            'lesForm' => $form->createView(),
+        ]);
     }
 
 }

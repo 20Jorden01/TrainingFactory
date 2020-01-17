@@ -16,6 +16,7 @@
             <th>Aantal ingeschreven deelnemers</th>
             <th>Deelnemerlijst</th>
             <th>Aanpassen</th>
+            <th>Verwijderen</th>
             </thead>
             {% for les in lessen %}
                 <tr>
@@ -36,7 +37,12 @@
                             {% endfor %}
                         </div>
                     </td>
-                    <td><a href="{{ path('deleteLes', {'id': les.id }) }}">Delete</a></td>
+                    <td>
+                        {% if(les.getDeelnemersAantal(registrations, les.id) == 0 ) %}
+                        <a href="{{ path('bewerkLes', {'id': les.id }) }}"><button class="margin0">Bewerken</button></a>
+                        {% endif %}
+                    </td>
+                    <td><a href="{{ path('deleteLes', {'id': les.id }) }}"><button class="margin0">Verwijderen</button></a></td>
                 </tr>
             {% endfor %}
         </table>

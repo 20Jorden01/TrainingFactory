@@ -10,7 +10,7 @@
                 <table>
                     <thead>
                     <th colspan="3" style="text-align: left">
-                        <h3>{{ app.user.firstName }} {{ app.user.preprovision }} {{ app.user.lastName }}</h3>
+                        <h3>{{ app.user.firstName|capitalize }} {{ app.user.preprovision }} {{ app.user.lastName|capitalize }}</h3>
                     </th>
                     </thead>
                     <tr>
@@ -23,7 +23,7 @@
                     </tr>
                     <tr>
                         <td><p>Man/vrouw</p></td>
-                        <td colspan="2" class="tekst">{{ app.user.gender }}</td>
+                        <td colspan="2" class="tekst">{{ app.user.gender|capitalize }}</td>
                     </tr>
                     <tr>
                         <td><p>adres:</p></td>
@@ -60,15 +60,15 @@
                     </thead>
                     {% for registration in registrations|sort((a, b) => a.lesson.time <=> b.lesson.time)|sort((a, b) => a.lesson.date <=> b.lesson.date) %}
                         <tr>
-                            <td>{{ registration.lesson.training.getName }}</td>
+                            <td>{{ registration.lesson.training.getName|capitalize }}</td>
                             <td>{{ registration.getLesson().getDate2() }}</td>
                             <td>{{ registration.getLesson().getTime2() }}</td>
-                            <td>{{ registration.getLesson().getLocation() }}</td>
+                            <td>{{ registration.getLesson().getLocation()|capitalize }}</td>
                             <td>{{ registration.getLesson().getTraining().getDuration2() }}</td>
                             <td>
                                 {% if((registration.lesson().getDate() > date('-1days')) and (date()|date_modify('+15 min')|date("H:i") < registration.lesson().getTime()|date("H:i") )) %}
                                     <a href="{{ path('deleteRegistration', {'id': registration.id }) }}">
-                                        <button class="uitschrijven">Uitschrijven</button>
+                                        <button class="margin0">Uitschrijven</button>
                                     </a>
                                 {% endif %}
                             </td>

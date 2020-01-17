@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title %}Les bewerken{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/login.css')}}">
+{% endblock %}
+{% block body %}
+    <div class="container justify-content-center">
+        <h2>Les bewerken</h2>
+        {{ form_start(lesForm) }}
+        <form>
+            {{ form_errors(lesForm) }}
+            <table>
+                <tr>
+                    <td><p>datum*</p></td>
+                    <td colspan="2">{{ form_row(lesForm.date) }}</td>
+                </tr>
+                <tr>
+                    <td><p>tijd*</p></td>
+                    <td colspan="2">{{ form_row(lesForm.time) }}</td>
+                </tr>
+                <tr>
+                    <td><p>locatie*</p></td>
+                    <td colspan="2">{{ form_row(lesForm.location) }}</td>
+                </tr>
+                <tr>
+                    <td><p>max personen*</p></td>
+                    <td colspan="2">{{ form_row(lesForm.max_persons) }}</td>
+                </tr>
+                <tr>
+                    <td><p>training*</p></td>
+                    <td colspan="2">{{ form_row(lesForm.training) }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button>Opslaan</button></td>
+                </tr>
+            </table>
+            {{ form_rest(lesForm) }}
+        </form>
+        {{ form_end(lesForm)}}
+    </div>
+{% endblock %}
