@@ -17,7 +17,7 @@
             <th>wachtwoord reset</th>
             <th>verwijderen</th>
             </thead>
-            {% for lid in leden %}
+            {% for lid in leden|sort((a, b) => a.firstname <=> b.firstname)|sort((a, b) => b.getRole2 <=> a.getRole2) %}
                 {% if lid.id != app.user.id %}
                 <tr>
                     <td>{{ lid.firstname|capitalize }} {{ lid.preprovision }} {{ lid.lastname|capitalize }}</td>
