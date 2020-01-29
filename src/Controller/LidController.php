@@ -26,7 +26,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class LidController extends AbstractController
 {
     /**
-     * @Route("/inschrijven/{slug}", name="inschrijven")
+     * @Route("/lid/inschrijven/{slug}", name="inschrijven")
      */
     public function show(TrainingRepository $training, $slug = null)
     {
@@ -72,7 +72,7 @@ class LidController extends AbstractController
 
     /**
      *
-     * @Route("/profiel", name="profiel")
+     * @Route("/lid/profiel", name="profiel")
      *
      */
     public function showProfiel()
@@ -90,7 +90,7 @@ class LidController extends AbstractController
     /**
      * @param Lesson $entity
      *
-     * @Route("/{id}/entity-add", requirements={"id" = "\d+"}, name="add_route_name")
+     * @Route("/lid/{id}/entity-add", requirements={"id" = "\d+"}, name="add_route_name")
      * @return RedirectResponse
      *
      */
@@ -146,7 +146,7 @@ class LidController extends AbstractController
     /**
      * @param Registration $entity
      *
-     * @Route("/{id}/registration-remove", requirements={"id" = "\d+"}, name="deleteRegistration")
+     * @Route("/lid/{id}/registration-remove", requirements={"id" = "\d+"}, name="deleteRegistration")
      * @return RedirectResponse
      *
      */

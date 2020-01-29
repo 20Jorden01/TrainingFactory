@@ -38,7 +38,7 @@
                         </div>
                     </td>
                     <td>
-                        {% if(les.getDeelnemersAantal(registrations, les.id) == 0 ) %}
+                        {% if(les.getDeelnemersAantal(registrations, les.id) == 0 and (date()|date_modify('+60 min')|date("H:i") < les.getTime()|date("H:i") ) and (les.getDate() > date('-1days')) ) %}
                         <a href="{{ path('bewerkLes', {'id': les.id }) }}"><button class="margin0">Bewerken</button></a>
                         {% endif %}
                     </td>

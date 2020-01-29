@@ -30,7 +30,7 @@ use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/TrainingToevoegen")
+     * @Route("/admin/TrainingToevoegen", name="trainingtoevoegen")
      */
     public function showTrainingToevoegen(Request $request){
         $training = new Training();
@@ -51,7 +51,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/trainingen", name="trainingBeheer")
+     * @Route("/admin/trainingen", name="trainingBeheer")
      */
     public function showTrainingen(){
         $repository = $this->getDoctrine()->getRepository(Training::class);
@@ -65,7 +65,7 @@ class AdminController extends AbstractController
     /**
      * @param Training $entity
      *
-     * @Route("/{id}/training-remove", requirements={"id" = "\d+"}, name="deleteTraining")
+     * @Route("/admin/{id}/training-remove", requirements={"id" = "\d+"}, name="deleteTraining")
      * @return RedirectResponse
      *
      */
@@ -77,7 +77,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/Training/edit/{id}", name="trainingBewerken")
+     * @Route("/admin/Training/edit/{id}", name="trainingBewerken")
      */
     public function update($id, Request $request)
     {
@@ -99,7 +99,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/leden", name="ledenBeheer")
+     * @Route("/admin/leden", name="ledenBeheer")
      */
     public function showLeden(){
         $repository = $this->getDoctrine()->getRepository(User::class);
@@ -113,7 +113,7 @@ class AdminController extends AbstractController
     /**
      * @param User $entity
      *
-     * @Route("/{id}/lid-remove", requirements={"id" = "\d+"}, name="deleteLid")
+     * @Route("/admin/{id}/lid-remove", requirements={"id" = "\d+"}, name="deleteLid")
      * @return RedirectResponse
      *
      */
@@ -127,7 +127,7 @@ class AdminController extends AbstractController
     /**
      * @param User $entity
      *
-     * @Route("/{id}/lid-resetwachtwoord", requirements={"id" = "\d+"}, name="resetPassword")
+     * @Route("/admin/{id}/lid-resetwachtwoord", requirements={"id" = "\d+"}, name="resetPassword")
      * @return RedirectResponse
      *
      */
@@ -140,7 +140,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/InstructeurToevoegen", name="toevoegenInstructeur")
+     * @Route("/admin/InstructeurToevoegen", name="toevoegenInstructeur")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginFormAuthenticator $authenticator): Response
     {

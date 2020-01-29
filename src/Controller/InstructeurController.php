@@ -25,7 +25,7 @@ class InstructeurController extends AbstractController
 {
 
     /**
-     * @Route("/lestoevoegen")
+     * @Route("/instructeur/lestoevoegen", name="lestoevoegen")
      */
     public function showlestoevoegen(Request $request){
         $les = new Lesson();
@@ -48,7 +48,7 @@ class InstructeurController extends AbstractController
     }
 
     /**
-     * @Route("/lessen", name="lessenBeheer")
+     * @Route("/instructeur/lessen", name="lessenBeheer")
      */
     public function showLessen(){
         $repository = $this->getDoctrine()->getRepository(Lesson::class);
@@ -66,7 +66,7 @@ class InstructeurController extends AbstractController
     /**
      * @param Lesson $entity
      *
-     * @Route("/{id}/entity-remove", requirements={"id" = "\d+"}, name="deleteLes")
+     * @Route("/instructeur/{id}/entity-remove", requirements={"id" = "\d+"}, name="deleteLes")
      * @return RedirectResponse
      *
      */
@@ -78,7 +78,7 @@ class InstructeurController extends AbstractController
     }
 
     /**
-     * @Route("/lesbewerken/{id}", name="bewerkLes")
+     * @Route("/instructeur/lesbewerken/{id}", name="bewerkLes")
      */
     public function showlesBewerken(Request $request, $id){
         $entityManager = $this->getDoctrine()->getManager();

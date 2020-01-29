@@ -9,20 +9,20 @@
             </li>
             {% if is_granted('ROLE_USER') and is_granted('ROLE_INSTRUCTEUR') == false %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/inschrijven">Inschrijven op les</a>
+                    <a class="nav-link" href="{{ path('inschrijven') }}">Inschrijven op les</a>
                 </li>
             {% endif %}
             {% if is_granted('ROLE_INSTRUCTEUR')and is_granted('ROLE_ADMIN') == false %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/lestoevoegen">Les toevoegen</a>
+                    <a class="nav-link" href="{{ path('lestoevoegen') }}">Les toevoegen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/lessen">Beheer lessen</a>
+                    <a class="nav-link" href="{{ path('lessenBeheer') }}">Beheer lessen</a>
                 </li>
             {% endif %}
             {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/TrainingToevoegen">Training toevoegen</a>
+                    <a class="nav-link" href="{{ path('trainingtoevoegen') }}">Training toevoegen</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('trainingBeheer') }}">Trainingen</a>
@@ -34,9 +34,9 @@
                     <a class="nav-link" href="{{ path('toevoegenInstructeur') }}">Instructeur toevoegen</a>
                 </li>
             {% endif %}
-            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_INSTRUCTEUR') %}
+            {% if is_granted('ROLE_USER') %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/profiel">Profiel</a>
+                    <a class="nav-link" href="{{ path('profiel') }}">Profiel</a>
                 </li>
             {% endif %}
             <li class="nav-item">
