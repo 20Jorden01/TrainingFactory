@@ -3,12 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="c50aad1f-dc33-4b32-a9fd-3135c87f9c88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InstructeurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InstructeurController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BezoekerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BezoekerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/LidController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LidController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/instructeur/lessen.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/instructeur/lessen.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/contact.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/gedragsregels.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/gedragsregels.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/lessen.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/lid/lessen.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registreren.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/registreren.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/trainingAanbod.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/trainingAanbod.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -162,10 +167,16 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/xampp/htdocs/opdracht2.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../xampp/htdocs/opdracht2.php" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\TrainingFactory\templates\bezoeker" />
+      <recent name="C:\TrainingFactory\templates\lid" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -203,7 +214,8 @@
       <workItem from="1579075907375" duration="11404000" />
       <workItem from="1579160777959" duration="13264000" />
       <workItem from="1579250540979" duration="7266000" />
-      <workItem from="1580197743792" duration="2155000" />
+      <workItem from="1580197743792" duration="2579000" />
+      <workItem from="1580304172515" duration="728000" />
     </task>
     <servers />
   </component>

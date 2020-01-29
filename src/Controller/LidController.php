@@ -60,7 +60,7 @@ class LidController extends AbstractController
             array_push($lidLessen, $registration->getLesson()->getId());
         }
 
-        return $this->render('lessen.html.twig', [
+        return $this->render('lid/lessen.html.twig', [
             'trainingen' => $trainingen,
             'lessen' => $lessen,
             'datums' => $datums,
@@ -156,5 +156,14 @@ class LidController extends AbstractController
         $entityManager->remove($entity);
         $entityManager->flush();
         return $this->redirectToRoute('profiel');
+    }
+
+    /**
+     * @Route("/logout", name="app_logout")
+     */
+    public function logout()
+    {
+        throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
+        return $this->redirectToRoute('homepagina');
     }
 }
