@@ -73,7 +73,7 @@ class User implements UserInterface
     private $registrations;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="intructor")
+     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="intructor", orphanRemoval=true)
      */
     private $lessons;
 

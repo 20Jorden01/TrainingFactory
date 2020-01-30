@@ -5,8 +5,9 @@
         <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     {% endblock %}
     {% block body %}
-        <div class="container justify-content-center">
+        <div class="container">
             <div class="row">
+
                 <table>
                     <thead>
                     <th colspan="3" style="text-align: left">
@@ -44,39 +45,42 @@
                     <tr>
                         <td></td>
                         <td colspan="2" class=""><a
-                                    href="{{ path('lidgegevensbewerken', {'id': app.user.id }) }})}}"><button>Bewerken</button></a></td>
+                                    href="{{ path('lidgegevensbewerken', {'id': app.user.id }) }})}}">
+                                <button>Bewerken</button>
+                            </a></td>
                     </tr>
                 </table>
+
             </div>
             {% if is_granted('ROLE_USER')and is_granted('ROLE_INSTRUCTEUR') == false %}
-            <div class="row" style="margin-top: 10px">
-                <table class="table">
-                    <thead>
-                    <th>Training</th>
-                    <th>Datum</th>
-                    <th>Tijd</th>
-                    <th>Locatie</th>
-                    <th>Duur</th>
-                    <th>Uitschijven</th>
-                    </thead>
-                    {% for registration in registrations|sort((a, b) => a.lesson.time <=> b.lesson.time)|sort((a, b) => a.lesson.date <=> b.lesson.date) %}
-                        <tr>
-                            <td>{{ registration.lesson.training.getName|capitalize }}</td>
-                            <td>{{ registration.getLesson().getDate2() }}</td>
-                            <td>{{ registration.getLesson().getTime2() }}</td>
-                            <td>{{ registration.getLesson().getLocation()|capitalize }}</td>
-                            <td>{{ registration.getLesson().getTraining().getDuration2() }}</td>
-                            <td>
-                                {% if((registration.lesson().getDate() > date('-1days')) and (date()|date_modify('+15 min')|date("H:i") < registration.lesson().getTime()|date("H:i") )) %}
-                                    <a href="{{ path('deleteRegistration', {'id': registration.id }) }}">
-                                        <button class="margin0">Uitschrijven</button>
-                                    </a>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            </div>
+                <div class="row list" style="margin: 10px 0;">
+                        <table class="table">
+                            <thead>
+                            <th>Training</th>
+                            <th>Datum</th>
+                            <th>Tijd</th>
+                            <th>Locatie</th>
+                            <th>Duur</th>
+                            <th>Uitschijven</th>
+                            </thead>
+                            {% for registration in registrations|sort((a, b) => a.lesson.time <=> b.lesson.time)|sort((a, b) => a.lesson.date <=> b.lesson.date) %}
+                                <tr>
+                                    <td>{{ registration.lesson.training.getName|capitalize }}</td>
+                                    <td>{{ registration.getLesson().getDate2() }}</td>
+                                    <td>{{ registration.getLesson().getTime2() }}</td>
+                                    <td>{{ registration.getLesson().getLocation()|capitalize }}</td>
+                                    <td>{{ registration.getLesson().getTraining().getDuration2() }}</td>
+                                    <td>
+                                        {% if((registration.lesson().getDate() > date('-1days')) and (date()|date_modify('+15 min')|date("H:i") < registration.lesson().getTime()|date("H:i") )) %}
+                                            <a href="{{ path('deleteRegistration', {'id': registration.id }) }}">
+                                                <button class="margin0">Uitschrijven</button>
+                                            </a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                </div>
             {% endif %}
         </div>
     {% endblock %}

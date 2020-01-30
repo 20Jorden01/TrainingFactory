@@ -55,3 +55,8 @@ h3{
 .margin0{
     margin: 0;
 }
+
+.list{
+    max-height: 30vh;
+    overflow: auto;
+}
