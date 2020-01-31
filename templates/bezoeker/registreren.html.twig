@@ -38,10 +38,6 @@
                     <td><p>Wachtwoord*</p></td>
                     <td>{{ form_row(registrationForm.plainPassword) }}</td>
                 </tr>
-{#                <tr>#}
-{#                    <td><p>Herhaal wachtwoord*</p></td>#}
-{#                    <td><input type="password" name="password2" required></td>#}
-{#                </tr>#}
                 <tr>
                     <td colspan="3"><p>Het wachtwoord is nodig om in te loggen. Moet minstens 6 tekens bevatten</p></td>
                 </tr>
@@ -72,7 +68,6 @@
                 <tr>
                     <td></td>
                     <td><button>Registreer</button></td>
-{#                    <td><input type="submit" name="registreer" value="Registreer"></td>#}
                 </tr>
             </table>
             {{ form_rest(registrationForm) }}
